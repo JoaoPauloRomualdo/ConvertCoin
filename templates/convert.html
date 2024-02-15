@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Dados da API: {{coin}} </h1>
+    {% for item in dados %}
+        <span>{{ item }}</span>
+    {% endfor %}
+    <span>{{ name_usd_brl }}</span>
+    <p>Taxa de câmbio USD-BRL: {{ usd_brl }}</p>
+    <p>Taxa de câmbio EUR-BRL: {{ eur_brl }}</p>
+    <p>Taxa de câmbio BTC-BRL: {{ btc_brl }}</p>
+<!--     
+    <form method="POST" action="{{ url_for('convert') }}">
+        <label for="user_input">Digite um valor:</label>
+        <input type="number" name="user_input" id="user_input" step="0.01" required>
+        <button type="submit">Converter</button>
+    </form> -->
+
+</body>
+
+</html>
