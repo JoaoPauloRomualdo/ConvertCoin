@@ -4,25 +4,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/convert.css">
+    <title>ConvertCoin</title>
 
 </head>
 
 <body>
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+        <p>Carregando...</p>
+    </div>
+    <div class="containair">
+        <nav class="nav-home">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static',filename = 'imagens/home.svg') }}" alt="imagem homem">
+            </a>
+        </nav>
+        <aside>
+            <div class="card-box">
+                <div class="cards">
+                    <div class="cards-title">
+                        <img src="{{ url_for('static',filename = 'imagens/dollar.png') }}" alt="imagem dollar">
+                        <h3>{{ name_usd_brl }}</h3>
+                    </div>
+
+                    <div class="cards-body">
+                        <p class="card-history">
+                            A história do dólar remonta ao século XVIII, quando as colônias americanas eram
+                            controladas pela Grã-Bretanha. Antes da Revolução Americana, as colônias usavam uma
+                            variedade de moedas, incluindo o dólar espanhol, o dólar holandês e outras moedas
+                            estrangeiras.
+                        </p>
+                        <button class="lerMaisBtn" onclick="mostrarDivFlutuante('divFlutuante1')">Ler Mais</button>
+
+                        <div class="divFlutuante" id="divFlutuante1">
+                            <p>
+
+                                A história do dólar remonta ao século XVIII, quando as colônias americanas eram
+                                controladas pela Grã-Bretanha. Antes da Revolução Americana, as colônias usavam uma
+                                variedade de moedas, incluindo o dólar espanhol, o dólar holandês e outras moedas
+                                estrangeiras. No entanto, após a independência em 1776, as colônias buscaram estabelecer
+                                uma moeda nacional para facilitar o comércio e fortalecer a economia.
+
+                                O Congresso Continental emitiu as primeiras notas do dólar americano em 1775, mas foi
+                                somente em 1792 que o dólar foi oficialmente adotado como a unidade monetária dos
+                                Estados Unidos com a aprovação da Lei da Casa da Moeda. Nesse mesmo ano, o dólar foi
+                                definido em termos de peso de prata.
+
+                                Ao longo dos anos, o dólar passou por diversas mudanças, incluindo a introdução do
+                                sistema de papel-moeda durante a Guerra Civil Americana. Em 1913, o Sistema da Reserva
+                                Federal foi estabelecido para supervisionar a política monetária e a oferta de dinheiro
+                                nos Estados Unidos.
+
+                                O padrão ouro, que vinculava o valor do dólar a uma quantidade específica de ouro, foi
+                                abandonado em 1971 pelo presidente Richard Nixon. Desde então, o dólar se tornou uma
+                                moeda fiduciária, cujo valor não é mais respaldado por uma quantidade fixa de metal
+                                precioso.
+
+                                Atualmente, o dólar dos Estados Unidos é a principal moeda de reserva global e é
+                                amplamente utilizado no comércio internacional. O símbolo do dólar ($) é reconhecido
+                                mundialmente, e a moeda é emitida pelo Departamento do Tesouro dos Estados Unidos. A
+                                Reserva Federal desempenha um papel crucial na formulação da política monetária para
+                                garantir a estabilidade econômica do país.
+                            </p>
+                            <button onclick="fecharDivFlutuante('divFlutuante1')">Fechar</button>
+                        </div>
+                    </div>
+
+                    <div class="cards-information">
+                        <div class="card-information">
+                            <h4>Cotação atual :</h4>
+                            <div class="cotacao" data-item="1">{{ usd_brl }}</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cards">
+                    <div class="cards-title">
+                        <img src="{{ url_for('static',filename = 'imagens/bitcoin.png') }}" alt="imagem bitcoin">
+                        <h3>{{name_btc}}</h3>
+                    </div>
+
+                    <div class="cards-body">
+                        <p class="card-history">
+                            O Bitcoin é uma criptomoeda descentralizada, criada em 2009 por uma pessoa ou grupo sob o
+                            pseudônimo de Satoshi Nakamoto. Diferentemente das moedas tradicionais, o Bitcoin não é
+                            emitido por uma autoridade central, como um governo ou instituição financeira.
+                        </p>
+
+                        <button class="lerMaisBtn" onclick="mostrarDivFlutuante('divFlutuante2')">Ler Mais </button>
+
+                        <div class="divFlutuante" id="divFlutuante2">
+                            <p>
+                                O Bitcoin é uma criptomoeda descentralizada, criada em 2009 por uma pessoa ou grupo sob
+                                o pseudônimo de Satoshi Nakamoto. Diferentemente das moedas tradicionais, o Bitcoin não
+                                é emitido por uma autoridade central, como um governo ou instituição financeira. Em vez
+                                disso, utiliza uma tecnologia chamada blockchain para registrar e verificar transações
+                                de forma transparente e segura.
+
+                                O processo de criação de novos Bitcoins é chamado de mineração, onde os mineradores
+                                resolvem complexos problemas matemáticos para validar transações e criar novas unidades
+                                da criptomoeda. A oferta total de Bitcoins é limitada a 21 milhões, o que contribui para
+                                a ideia de escassez digital.
+
+                                O Bitcoin ganhou popularidade como uma forma de investimento e meio de troca, embora sua
+                                volatilidade de preço seja notável. A aceitação e a regulamentação do Bitcoin variam
+                                globalmente, com alguns países adotando e regulamentando a criptomoeda, enquanto outros
+                                impõem restrições. Além do Bitcoin, várias outras criptomoedas foram criadas com base em
+                                tecnologias semelhantes, expandindo o ecossistema das criptomoedas.
+                            </p>
+                            <button onclick="fecharDivFlutuante('divFlutuante2')">Fechar</button>
+                        </div>
+                    </div>
+
+                    <div class="cards-information">
+                        <div class="card-information">
+                            <h4>Cotação atual :</h4>
+                            <div class="cotacao" data-item="2">{{btc_brl}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="cards-title">
+                        <img src="{{ url_for('static',filename = 'imagens/euro.png') }}" alt="imagem euro">
+                        <h3>{{name_euro}}</h3>
+                    </div>
+
+                    <div class="cards-body">
+                        <p class="card-history">
+                            O euro é uma moeda que simboliza a integração econômica na União Europeia (UE). Sua introdução, iniciada em 1999, foi uma etapa crucial na criação de uma moeda única para a zona do euro. A implementação completa, com a circulação de notas e moedas físicas, ocorreu em 2002. 
+                        </p>
+                        <button class="lerMaisBtn" onclick="mostrarDivFlutuante('divFlutuante3')">Ler Mais</button>
+
+                        <div class="divFlutuante" id="divFlutuante3">
+                            <p>
+                                O euro é uma moeda que simboliza a integração econômica na União Europeia (UE). Sua introdução, iniciada em 1999, foi uma etapa crucial na criação de uma moeda única para a zona do euro. A implementação completa, com a circulação de notas e moedas físicas, ocorreu em 2002. O euro representa a união econômica e monetária de países europeus, proporcionando benefícios como a eliminação de taxas de câmbio dentro da zona do euro. Ao longo dos anos, a moeda enfrentou desafios, especialmente durante a crise financeira global, levando a esforços para reforçar a estabilidade econômica e a governança da zona do euro. Apesar das adversidades, o euro se tornou uma das moedas de reserva mais importantes do mundo, refletindo a força da cooperação econômica na UE e marcando um capítulo significativo na história econômica europeia.
+                                Além de seu papel econômico, o euro tem implicações significativas para a identidade europeia e a cooperação política. A criação do euro reflete a aspiração de uma Europa unida, superando divisões históricas e promovendo uma visão comum para o futuro. O uso compartilhado da moeda também influencia as políticas econômicas e fiscais dos países membros, exigindo uma coordenação estreita para garantir a estabilidade da zona do euro. As experiências ao longo das crises econômicas revelaram tanto os desafios quanto os benefícios dessa união monetária. Assim, o euro não é apenas uma ferramenta econômica, mas um símbolo que reflete os ideais de cooperação e solidariedade que sustentam a União Europeia. O seu impacto abrange dimensões econômicas, políticas e culturais, tornando-o um elemento central na história e na trajetória futura da Europa unificada.
+                            </p>
+                            <button onclick="fecharDivFlutuante('divFlutuante3')">Fechar</button>
+                        </div>
+                    </div>
+                    <div class="cards-information">
+                        <div class="card-information">
+                            <h4>Cotação atual :</h4>
+                            <div class="cotacao" data-item="3">{{eur_brl}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 
     <h1>Dados da API: {{coin}} </h1>
     {% for item in dados %}
-        <span>{{ item }}</span>
+    <span>{{ item }}</span>
     {% endfor %}
     <span>{{ name_usd_brl }}</span>
     <p>Taxa de câmbio USD-BRL: {{ usd_brl }}</p>
     <p>Taxa de câmbio EUR-BRL: {{ eur_brl }}</p>
-    <p>Taxa de câmbio BTC-BRL: {{ btc_brl }}</p>
-<!--     
+    <p>Taxa de câmbio BTC-BRL: {{ btc_brl }}</p> -->
+    <!--     
     <form method="POST" action="{{ url_for('convert') }}">
         <label for="user_input">Digite um valor:</label>
         <input type="number" name="user_input" id="user_input" step="0.01" required>
         <button type="submit">Converter</button>
     </form> -->
+    <script src="../static/script.js"></script>
 
 </body>
 

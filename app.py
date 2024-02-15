@@ -16,13 +16,22 @@ def convert():
     # Extraindo as taxas de câmbio específicas
     name_usd_brl = dados['USDBRL']['name']
     usd_brl = round(float(dados['USDBRL']['bid']), 2)
+
+    name_euro = dados['EURBRL']['name']
     eur_brl = round(float(dados['EURBRL']['bid']), 2)
-    btc_brl = round(float(dados['BTCBRL']['bid']), 2)
+
+    name_btc = dados['BTCBRL']['name'] 
+    btc_brl = round(float(dados['BTCBRL']['bid']), 4)
+
+
+
     return render_template('convert.html',
                             usd_brl=usd_brl,
                             eur_brl=eur_brl,
                             btc_brl=btc_brl,
-                            name_usd_brl = name_usd_brl
+                            name_usd_brl = name_usd_brl,
+                            name_euro = name_euro,
+                            name_btc = name_btc
                             )
 
 """ # Obtendo o valor digitado pelo usuário e convertendo para float
